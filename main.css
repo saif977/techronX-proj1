@@ -3,20 +3,132 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-   
+    transition: all 0.3s ease-in-out;
 }
 
 
 :root{
     --footer-backgound-color:rgb(43, 43, 43);
     --footer-text-color:rgb(112, 112, 112);
+    --aside-text-active-color:black;
+    --aside-text-non-active-color:rgb(37, 37, 37);
+}
+
+
+header , .container , .card-container , footer{
+    margin-left:280px;
+    transition: all 0.5s ease-in-out;
+}
+
+aside{
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    height:100vh;
+    position: fixed;
+    width:280px;
+    padding:40px;
+    background-color: rgb(245, 76, 104);
+    color:black;
+}
+
+aside a{
+    text-decoration: none;
+    color:var(--aside-text-non-active-color);
+}
+
+aside .logo{
+    text-align: center;
+}
+
+aside .logo .logoPic {
+  margin-bottom: 10px;
+}
+
+aside ul{
+    width:100px;
+    text-align: center;
+}
+
+aside li{
+    display: inline-block;
+    text-align: center;
+    list-style: none;
+    padding-bottom:0px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    transition: all 1.5s ease-in-out;
+    font-size: 1.0rem;
+}
+
+aside ul li .active{
+    color:var(--aside-text-active-color) !important;
+}
+
+aside ul li .active + .underLine{
+    transform: scaleX(1) !important;
+}
+
+aside li .underLine{
+    width:100%;
+    background-color:var(--aside-text-active-color);
+    padding: 0.55px;
+    transform: scaleX(0);
+    transition: all 150ms ease-in-out;
+}
+
+
+
+aside li:hover .underLine{
+    transform: scaleX(1);
+}
+
+aside li:hover a{
+   color:var(--aside-text-active-color) ;
+   
+}
+
+aside .followUs{
+    text-align: center;
+    text-transform: capitalize;
+    color:var(--aside-text-non-active-color);
+}
+
+aside .followUs h4{
+    margin-bottom: 15px;
+}
+
+aside .followUsNetworks{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+aside .followUsNetworks a{
+    width:50px;
+    height:50px;
+    background-color: rgb(255, 121, 143);
+    border-radius: 50%;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+aside .followUsNetworks i{
+    font-size: 1.3rem;
+    color: black;
 }
 
 main{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
     grid-gap:5px;
-    margin:0;
+    margin-left:280px;
 }
 
 .photo{
@@ -29,6 +141,7 @@ main{
      background-color: var(--footer-backgound-color);
      font-size: 1.0rem;
      color:var(--footer-text-color);
+     margin-left:280px;
  }
 
  footer > p{
@@ -75,6 +188,20 @@ footer div h3 {
      float:right;
  }
  
+ @media only screen and (max-width:1000px){
+    aside{
+        transform: translateX(-100%);
+    }
+
+    main{
+        margin-left: 0;
+    }
+
+    footer{
+       margin-left: 0;
+    }
+}
+
 
  @media only screen and (max-width:850px)
  {
@@ -89,6 +216,7 @@ footer div h3 {
      }
  }
 
+ 
 
  @media only screen and (max-width:315px)
  {
@@ -100,3 +228,4 @@ footer div h3 {
          margin-top: 5px;
      }
  }
+  
