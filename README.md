@@ -1,2 +1,2 @@
 # techronX-proj1
-sidebar is in progress
+contact Us page is in progress
